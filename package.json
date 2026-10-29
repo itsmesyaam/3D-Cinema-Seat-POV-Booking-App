@@ -12,6 +12,7 @@
     "@react-three/drei": "^9.114.0",
     "@react-three/fiber": "^8.17.10",
     "@react-three/postprocessing": "^2.16.3",
+    "camera-controls": "^2.10.1",
     "gsap": "^3.12.5",
     "postprocessing": "~6.36.3",
     "react": "^18.3.1",

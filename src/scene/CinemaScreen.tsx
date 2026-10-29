@@ -306,7 +306,7 @@ export function CinemaScreen({ signal }: { signal: ScreenSignal }) {
   const geometry = useMemo(() => {
     const g = new THREE.PlaneGeometry(SCREEN.width, SCREEN.height, 64, 1);
     const pos = g.attributes.position;
-    for (int i = 0; i < pos.count; i++) {
+    for (let i = 0; i < pos.count; i++) {
       const nx = pos.getX(i) / (SCREEN.width / 2);
       pos.setZ(i, nx * nx * CURVE);
     }

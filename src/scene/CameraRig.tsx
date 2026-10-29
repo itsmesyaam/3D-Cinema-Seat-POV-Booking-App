@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { CameraControls, CameraControlsImpl } from '@react-three/drei';
+import { CameraControls } from '@react-three/drei';
+import CameraControlsImpl from 'camera-controls';
 import gsap from 'gsap';
 import * as THREE from 'three';
 import { CAMERA_PRESETS, SCREEN_CENTER, SEAT_BY_ID, seatEye, type Vec3, type ViewKey } from '../lib/data';
