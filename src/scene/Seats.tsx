@@ -31,7 +31,11 @@ const pair = (make: () => THREE.BufferGeometry, x: number, y: number, z: number)
 ];
 
 function merge(parts: Part[]) {
-  const list = parts.map(([g, x, y, z, tilt = 0]) => g.rotateX(tilt).translate(x, y, z));
+  const list = parts.map(([g, x, y, z, tilt = 0]) => {
+    const geo = g.index ? g.toNonIndexed() : g.clone();
+    g.dispose();
+    return geo.rotateX(tilt).translate(x, y, z);
+  });
   const merged = mergeGeometries(list, false);
   list.forEach((g) => g.dispose());
   if (!merged) throw new Error('Seat geometry merge failed');
