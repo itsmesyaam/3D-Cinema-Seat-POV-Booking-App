@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { min-height: 100%; background: #0b0b0e; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  /* Glass is reserved for the floating layer over the canvas. */
+  .glass {
+    background: rgba(18, 17, 22, 0.58);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 32px -16px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .focus-ring {
+    @apply outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+  }
+  .eyebrow { @apply font-mono text-[11px] uppercase tracking-[0.18em] text-mute; }
+  /* Occupied = pattern + dim fill, so state never relies on colour alone. */
+  .seat-taken {
+    background-image: linear-gradient(135deg, transparent 42%, rgba(255,255,255,0.22) 42%,
+      rgba(255,255,255,0.22) 58%, transparent 58%);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass { background: rgba(18, 17, 22, 0.97); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (prefers-contrast: more) {
+  .glass { border-color: rgba(255, 255, 255, 0.4); }
+}
